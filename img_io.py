@@ -36,10 +36,13 @@
  " Date: Aug 2017
 """
 
-
+import cv2
 import numpy as np
-import scipy.misc
+# import scipy.misc
+import imageio
 import OpenEXR, Imath
+from skimage.transform import resize
+
 
 class IOException(Exception):
     def __init__(self, value):
@@ -50,7 +53,8 @@ class IOException(Exception):
 # Read and prepare 8-bit image in a specified resolution
 def readLDR(file, sz, clip=True, sc=1.0):
     try:
-        x_buffer = scipy.misc.imread(file)
+        # x_buffer = scipy.misc.imread(file)
+        x_buffer = imageio.imread(file)
 
         # Clip image, so that ratio is not changed by image resize
         if clip:
@@ -73,7 +77,8 @@ def readLDR(file, sz, clip=True, sc=1.0):
             x_buffer = x_buffer[int(yo):int(yo+sy),int(xo):int(xo+sx),:]
 
         # Image resize and conversion to float
-        x_buffer = scipy.misc.imresize(x_buffer, sz)
+        # x_buffer = scipy.misc.imresize(x_buffer, sz)
+        x_buffer = resize(x_buffer, sz)
         x_buffer = x_buffer.astype(np.float32)/255.0
 
         # Scaling and clipping
@@ -94,7 +99,8 @@ def writeLDR(img, file, exposure=0):
     sc = np.power(np.power(2.0, exposure), 0.5)
 
     try:
-        scipy.misc.toimage(sc*np.squeeze(img), cmin=0.0, cmax=1.0).save(file)
+        # scipy.misc.toimage(sc*np.squeeze(img), cmin=0.0, cmax=1.0).save(file)
+        cv2.imwrite(file, sc)
     except Exception as e:
         raise IOException("Failed writing LDR image: %s"%e)
 
@@ -133,6 +139,7 @@ def load_training_pair(name_hdr, name_jpg):
     y = np.reshape(data[meta_length:meta_length+npix], (sz[0], sz[1], sz[2]))
 
     # Read JPEG LDR image
-    x = scipy.misc.imread(name_jpg).astype(np.float32)/255.0
+    # x = scipy.misc.imread(name_jpg).astype(np.float32)/255.0
+    x = imageio.imread(name_jpg).astype(np.float32) / 255.0
 
     return (True,x,y)
