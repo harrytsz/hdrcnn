@@ -1,4 +1,4 @@
-**注意**：由于新版的 scipy.misc 已经废弃，原脚本中的部分函数替换成其他库。
+**注意**：由于新版的 scipy.misc 已经废弃，原脚本中的部分函数已经替换成其他库。
 
 # **Deep learning HDR image reconstruction**
 
