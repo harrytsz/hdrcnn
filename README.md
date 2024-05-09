@@ -1,6 +1,7 @@
 **注意**：由于新版的 scipy.misc 已经废弃，原脚本中的部分函数已经替换成其他库。     
 imageio : 2.34.1     
-numpy : 1.20.0     
+numpy : 1.20.0
+openexr==3.2.4    
 tensorflow : 1.15.5    
 tensorlayer : 1.5.0    
 
@@ -40,7 +41,10 @@ All dependencies are available through the Python **pip** package manager (repla
 `tensorflow` with `tensorflow-gpu` for GPU support):
 
 ```
-$ pip install numpy scipy tensorflow tensorlayer OpenEXR
+$ pip install numpy==1.20.0
+$ pip install  tensorflow==1.15.5
+$ pip install tensorlayer==1.5.0
+$ pip install OpenEXR==3.2.4
 ```
 
 You may have to install OpenEXR through the appropriate package manager before pip install (e.g. sudo apt-get install openexr and libopenexr-dev on Ubuntu).
