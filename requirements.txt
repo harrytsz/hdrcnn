@@ -1,0 +1,13 @@
+conda==4.10.3
+imageio==2.34.1
+networkx==3.1
+numpy==1.20.0
+nvidia-cudnn==8.2.0.51
+nvidia-pyindex==1.0.9
+nvidia-tensorflow==1.15.5+nv21.10
+nvidia-tensorrt==8.0.3.4
+opencv-python==4.9.0.80
+openexr==3.2.4
+pillow==10.3.0
+scikit-image==0.21.0
+tensorlayer==1.5.0
