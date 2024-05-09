@@ -1,3 +1,5 @@
+**注意**：由于新版的 scipy.misc 已经废弃，原脚本中的部分函数替换成其他库。
+
 # **Deep learning HDR image reconstruction**
 
 ![image](https://computergraphics.on.liu.se/hdrcnn/img/teaser.jpg)
