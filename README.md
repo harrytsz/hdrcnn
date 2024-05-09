@@ -1,6 +1,6 @@
 **注意**：由于新版的 scipy.misc 已经废弃，原脚本中的部分函数已经替换成其他库。     
 imageio : 2.34.1     
-numpy : 1.20.0
+numpy : 1.20.0    
 openexr==3.2.4    
 tensorflow : 1.15.5    
 tensorlayer : 1.5.0    
